@@ -18,8 +18,9 @@ app.post('/postpayload',function(req,res){
     console.log(`payload :::${JSON.stringify(req.body)}`);
 });
 app.get('/omnichannel/facebook/webhook',function(req,res){
-    console.log(`userId::${req.params.hub.challenge}`)
-    res.send(req.params.hub.challenge)
+    let challenge = req.query['hub.challenge'];
+    console.log(`challenge::${challenge}`);
+    res.send(challenge);
 });
 app.listen(process.env.PORT || 3000,()=>{
     console.log("server is running");
