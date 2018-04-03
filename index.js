@@ -17,6 +17,16 @@ app.post('/postpayload',function(req,res){
    
     console.log(`payload :::${JSON.stringify(req.body)}`);
 });
+app.get('/omnichannel/facebook/webhook/:userId',function(req,res){
+   
+    console.log(`userId::${req.params.userId}`)
+    if( null==req.params.userId || req.params.userId == 'undefined'){
+        res.statusCode = 404;
+    }else{
+        res.statusCode = 200;
+    }
+    res.send("sucess !!")
+});
 app.listen(process.env.PORT || 3000,()=>{
     console.log("server is running");
 });
