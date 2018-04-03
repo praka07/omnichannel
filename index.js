@@ -25,7 +25,7 @@ app.get('/omnichannel/facebook/webhook',function(req,res){
    // }else{
         res.statusCode = 200;
    // }
-    res.send("success !!")
+   res.send("tacknology");
 });
 app.listen(process.env.PORT || 3000,()=>{
     console.log("server is running");
