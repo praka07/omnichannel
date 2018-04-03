@@ -14,7 +14,8 @@
     "license": "ISC",
     "dependencies": {
         "express": "4.16.3",
-        "path": "latest"
+        "path": "latest",
+         "body-parser": "1.18.2"
     },
     "engines": {
         "node": "latest",
