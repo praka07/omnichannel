@@ -18,14 +18,8 @@ app.post('/postpayload',function(req,res){
     console.log(`payload :::${JSON.stringify(req.body)}`);
 });
 app.get('/omnichannel/facebook/webhook',function(req,res){
-   
-   // console.log(`userId::${req.params.userId}`)
-   // if( null==req.params.userId || req.params.userId == 'undefined'){
-      //  res.statusCode = 404;
-   // }else{
-        res.statusCode = 200;
-   // }
-   res.send("tacknology");
+    console.log(`userId::${req.params.hub.challenge}`)
+    res.send(req.params.hub.challenge)
 });
 app.listen(process.env.PORT || 3000,()=>{
     console.log("server is running");
