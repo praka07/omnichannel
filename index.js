@@ -23,7 +23,7 @@ app.get('/omnichannel/facebook/webhook',function(req,res){
     res.send(challenge);
 });
 
-app.post('/webhook', (req, res) => {  
+app.post('/omnichannel/facebook/webhook', (req, res) => {  
  
     let body = req.body;
   
