@@ -25,7 +25,7 @@ app.get('/omnichannel/facebook/webhook/:userId',function(req,res){
     }else{
         res.statusCode = 200;
     }
-    res.send("sucess !!")
+    res.send("success !!")
 });
 app.listen(process.env.PORT || 3000,()=>{
     console.log("server is running");
