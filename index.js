@@ -17,7 +17,7 @@ app.post('/postpayload',function(req,res){
    
     console.log(`payload :::${JSON.stringify(req.body)}`);
 });
-app.get('/omnichannel/facebook/webhook/',function(req,res){
+app.get('/omnichannel/facebook/webhook',function(req,res){
    
    // console.log(`userId::${req.params.userId}`)
    // if( null==req.params.userId || req.params.userId == 'undefined'){
