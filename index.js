@@ -11,50 +11,7 @@ let bot = new Bot({
     token: 'EAAcMjrnEeygBAJzM3livVqEz6qoNDkJFLRULe9T2Ycn5WAfL2XZBOPRzax9LI433Sm0D7ShGAgFZAcyJmx2By6WTwoid48mvycZCbvUQ3jNESD6Kj3v7EwslqVI3ZBpsn6n0RtDIKDCeXZCLg6LSh1ZAyaqZA5MyC1O6wdZCIKlARgZDZD',
     // verify: 'VERIFY_TOKEN',
     app_secret: '164e65ba6bc5a042be106026aa55824f'
-})
-
-var payload={
-    "recipient": {
-      "id": "1801362176551550"
-    },
-    "message": {
-      "attachment": {
-        "type": "template",
-        "payload": {
-          "template_type": "button",
-          "text": "hi, Mani",
-          "buttons": [
-            {
-              "type": "web_url",
-              "url": "https://www.messenger.com",
-              "title": "seat selection"
-            }
-          ]
-        }
-      }
-    }
-  };
-
-
-var postheaders = {
-    'Content-Type' : 'application/json',
-    'Content-Length' : Buffer.byteLength(payload, 'utf8')
-};
-var optionspost = {
-    host : 'graph.facebook.com',
-    port : 443,
-    path : 'v2.6/me/messages?access_token=EAAcMjrnEeygBAJzM3livVqEz6qoNDkJFLRULe9T2Ycn5WAfL2XZBOPRzax9LI433Sm0D7ShGAgFZAcyJmx2By6WTwoid48mvycZCbvUQ3jNESD6Kj3v7EwslqVI3ZBpsn6n0RtDIKDCeXZCLg6LSh1ZAyaqZA5MyC1O6wdZCIKlARgZDZD',
-    method : 'POST',
-    headers : postheaders
-};
-
-
-
-
-
-
-
-
+});
 
 app.get('/omnichannel/selection', function (req, res) {
     res.sendFile(path.join(__dirname+'/design.html'));
@@ -69,10 +26,7 @@ app.post('/ominichannel/sendMessenger',function(req,res){
     });
 res.sendStatus(200);
 });
-app.post('/postpayload',function(req,res){
-   
-    console.log(`payload :::${JSON.stringify(req.body)}`);
-});
+
 app.get('/omnichannel/facebook/webhook',function(req,res){
     let challenge = req.query['hub.challenge'];
     console.log(`challenge::${challenge}`);
