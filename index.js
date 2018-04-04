@@ -69,6 +69,7 @@ app.get('/ominichannel/selection/:userId',function(req,res){
      
     // write the json data
     reqPost.write(JSON.stringify(payload));
+	reqPost.end();
 	reqPost.on('error', function(e) {
         console.error(e);
     });
