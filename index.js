@@ -1,10 +1,17 @@
 var express = require('express');
 var myParser = require("body-parser");
 var https = require('https');
-
 var path    = require("path");
 var app = express();
+var Bot = require('messenger-bot')
+
 app.use(myParser.json());
+
+let bot = new Bot({
+    token: 'EAAcMjrnEeygBAJzM3livVqEz6qoNDkJFLRULe9T2Ycn5WAfL2XZBOPRzax9LI433Sm0D7ShGAgFZAcyJmx2By6WTwoid48mvycZCbvUQ3jNESD6Kj3v7EwslqVI3ZBpsn6n0RtDIKDCeXZCLg6LSh1ZAyaqZA5MyC1O6wdZCIKlARgZDZD',
+    // verify: 'VERIFY_TOKEN',
+    app_secret: '164e65ba6bc5a042be106026aa55824f'
+})
 
 var payload={
     "recipient": {
@@ -52,28 +59,15 @@ var optionspost = {
 app.get('/omnichannel/selection', function (req, res) {
     res.sendFile(path.join(__dirname+'/design.html'));
   });
-app.get('/ominichannel/selection/:userId',function(req,res){
+app.post('/ominichannel/sendMessenger',function(req,res){
+    console.log(`request URI:::${req.body.fbNumber}`);
+    let temp = {"attachment":{"type":"template","payload":{"template_type":"button","text":"Hi, Buddy Great to see you here... Please proceed seat selection by clicking the folloeing button","buttons":[{"type":"web_url","url":"https://www.messenger.com","title":"Continue Journey"}]}}}
+	bot.sendMessage(req.body.fbNumber, temp, function(err, info) {
+        console.log(err)
+        console.log(info)
 
-    console.log(`request URI:::${req.params.userId}`);
-	
-	
-	 var reqPost = https.request(optionspost, function(res) {
-        console.log("statusCode: ", res.statusCode);
-         
-        res.on('data', function(d) {
-            console.log(`============POST result:============\n`);
-            process.stdout.write(d);
-            console.log(`\n\nPOST completed`);
-        });
     });
-     
-    // write the json data
-    reqPost.write(JSON.stringify(payload));
-	reqPost.end();
-	reqPost.on('error', function(e) {
-        console.error(e);
-    });
-
+res.sendStatus(200);
 });
 app.post('/postpayload',function(req,res){
    

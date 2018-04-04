@@ -17,7 +17,7 @@
         "path": "latest",
          "body-parser": "1.18.2",
         "https":"1.0.0",
-        "messenger-bot":"2.4.0",
+        "messenger-bot":"2.4.0"
     },
     "engines": {
         "node": "latest",
