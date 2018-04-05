@@ -49,6 +49,10 @@ app.get('/omnichannel/facebook/webhook',function(req,res){
     res.send(challenge);
 });
 
+app.get('/omnichannel/alexa/check',function(req,res){
+      res.send("Hi, Welocme to KLM !!");
+});
+
 app.post('/omnichannel/facebook/webhook', (req, res) => {  
  
     let body = req.body;
