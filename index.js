@@ -24,7 +24,7 @@ app.post('/ominichannel/sendMessenger',function(req,res){
     	collectionName: 'userInfo',
     	query: '{ "flyernumber": "'+req.body.flyernumber+'" }'
  	 };
-	let fbNumber;
+	var fbNumber;
 	mLab.listDocuments(options, function (err, data) {
     	console.log(data); 
     data.forEach(function(doc, index) { 
