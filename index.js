@@ -31,7 +31,7 @@ app.post('/ominichannel/sendMessenger',function(req,res){
       fbNumber=doc.fbNumber;
 	    console.log('fbnumber from database ${fbNumber}');
   });
-  console.log(`fbnumber :::${fbNumber} for flyer number ::: ${flyernumber}`);
+  console.log(`fbnumber :::${fbNumber} for flyer number ::: ${req.body.flyernumber}`);
   });
 	
     let temp = {"attachment":{"type":"template","payload":{"template_type":"button","text":"Hi, Buddy Great to see you here... Please proceed seat selection by clicking the folloeing button","buttons":[{"type":"web_url","url":"https://www.messenger.com","title":"Continue Journey"}]}}}
