@@ -24,10 +24,12 @@ app.post('/ominichannel/sendMessenger',function(req,res){
     	collectionName: 'userInfo',
     	query: '{ "flyernumber": "'+req.body.flyernumber+'" }'
  	 };
+	let fbNumber;
 	mLab.listDocuments(options, function (err, data) {
     	console.log(data); 
     data.forEach(function(doc, index) { 
-      let fbNumber=doc.fbNumber;
+      fbNumber=doc.fbNumber;
+	    console.log('fbnumber from database ${fbNumber}');
   });
   console.log(`fbnumber :::${fbNumber} for flyer number ::: ${flyernumber}`);
   });
