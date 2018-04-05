@@ -3,7 +3,8 @@ var myParser = require("body-parser");
 var https = require('https');
 var path    = require("path");
 var app = express();
-var Bot = require('messenger-bot')
+var Bot = require('messenger-bot');
+var mLab = require('mongolab-data-api')('w_AGSTEBxndTQ_LTeiFWDS4FVpPM1khT');
 
 app.use(myParser.json());
 
@@ -17,9 +18,22 @@ app.get('/omnichannel/selection', function (req, res) {
     res.sendFile(path.join(__dirname+'/design.html'));
   });
 app.post('/ominichannel/sendMessenger',function(req,res){
-    console.log(`request URI:::${req.body.fbNumber}`);
+    console.log(`request URI:::${req.body.flyernumber}`);
+	 var options = {
+   	 database: 'ominichannel',
+    	collectionName: 'userInfo',
+    	query: '{ "flyernumber": "'+req.body.flyernumber+'" }'
+ 	 };
+	mLab.listDocuments(options, function (err, data) {
+    	console.log(data); 
+    data.forEach(function(doc, index) { 
+      let fbNumber=doc.fbNumber;
+  });
+  console.log(`fbnumber :::${fbNumber} for flyer number ::: ${flyernumber}`);
+  });
+	
     let temp = {"attachment":{"type":"template","payload":{"template_type":"button","text":"Hi, Buddy Great to see you here... Please proceed seat selection by clicking the folloeing button","buttons":[{"type":"web_url","url":"https://www.messenger.com","title":"Continue Journey"}]}}}
-	bot.sendMessage(req.body.fbNumber, temp, function(err, info) {
+	bot.sendMessage(fbNumber, temp, function(err, info) {
         console.log(err)
         console.log(info)
 
