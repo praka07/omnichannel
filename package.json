@@ -18,7 +18,7 @@
          "body-parser": "1.18.2",
         "https":"1.0.0",
         "messenger-bot":"2.4.0",
-        "mlab-data-api":"0.2.2"
+        "mongolab-data-api":"1.1.6"
     },
     "engines": {
         "node": "latest",
