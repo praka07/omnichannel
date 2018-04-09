@@ -56,7 +56,7 @@ app.get('/omnichannel/alexa/check', function (req, res) {
  };
  console.log(response);
  res.write(response);
- // res.send(response);
+  res.send();
 });
 
 app.post('/omnichannel/facebook/webhook', (req, res) => {
