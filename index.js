@@ -50,7 +50,13 @@ app.get('/omnichannel/facebook/webhook', function (req, res) {
 });
 
 app.get('/omnichannel/alexa/check', function (req, res) {
-  res.send("Hi, Welocme to KLM !!");
+
+  response = {
+    "message":"Welocme to world"
+ };
+ console.log(response);
+ 
+  res.send(JSON.stringify(response));
 });
 
 app.post('/omnichannel/facebook/webhook', (req, res) => {
