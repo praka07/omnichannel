@@ -50,7 +50,7 @@ app.get('/omnichannel/facebook/webhook', function (req, res) {
 });
 
 app.get('/omnichannel/alexa/check', function (req, res) {
-  res.writeHead(200, {"Content-Type": "application/json"});
+  res.writeHead("200", {"Content-Type": "application/json"});
   var response = {
     "message":"Welocme to world"
  };
