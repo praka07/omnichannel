@@ -55,7 +55,7 @@ app.get('/omnichannel/alexa/check', function (req, res) {
     "message":"Welocme to world"
  };
  console.log(response);
- 
+ res.write(data);
   res.send(response);
 });
 
