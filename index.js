@@ -18,11 +18,11 @@ app.get('/omnichannel/selection', function (req, res) {
   res.sendFile(path.join(__dirname + '/design.html'));
 });
 app.post('/ominichannel/sendMessenger', function (req, res) {
-  console.log(`request URI:::${req.body.airline_FFNumber}`);
+  console.log(`request URI:::${req.body.flyernumber}`);
   var options = {
     database: 'ominichannel',
     collectionName: 'userInfo',
-    query: '{ "flyernumber": "' + req.body.airline_FFNumber + '" }'
+    query: '{ "flyernumber": "' + req.body.flyernumber + '" }'
   };
   var fbNumber;
   mLab.listDocuments(options, function (err, data) {
