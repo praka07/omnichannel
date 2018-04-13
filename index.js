@@ -19,10 +19,11 @@ app.get('/omnichannel/selection', function (req, res) {
 });
 app.post('/ominichannel/sendMessenger', function (req, res) {
   console.log(`request URI:::${req.body.flyernumber}`);
+  var ffnumber="1119571912";
   var options = {
     database: 'ominichannel',
     collectionName: 'userInfo',
-    query: '{ "flyernumber": "' + req.body.flyernumber + '" }'
+    query: '{ "flyernumber": "' + ffnumber + '" }'
   };
   var fbNumber;
   mLab.listDocuments(options, function (err, data) {
